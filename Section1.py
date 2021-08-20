@@ -19,15 +19,15 @@ def Process_File():
         z,a=[],[] #list to contain cleaned dataset
         for line in f:
             x=(line.rstrip('\n').split(','))  #split csv by ','
-            y=(x[0].split()) #split first name and last name by space into list X
-            y.append(x[1])#append price into X
-            z.append(y)# append completed list X into a empty list
+            y=(x[0].split()) #split first name and last name by space into list y
+            y.append(x[1])#append price into y
+            z.append(y)# append completed list y into a empty list
     for i in range(len(z)):
        for j in range(len(z[i])): # to clean up unwanted field
             if z[i][j]=='name' or z[i][j]=='price' or re.search ("Mr.",z[i][j]) or re.search ("Mrs.$",z[i][j])  or re.search ("Dr.$",z[i][j]) or re.search ("Ms.$",z[i][j]) or re.search ("Miss$",z[i][j]) or re.search ("MD$",z[i][j]) or re.search ("DDS$",z[i][j]) or re.search ("III$",z[i][j]) or re.search ("DVM$",z[i][j]) or re.search ("Jr.$",z[i][j]) or re.search ("PhD$",z[i][j]) or re.search ("II$",z[i][j]) or re.search ("IV$",z[i][j]):
                 z[i][j]='' # replace with empty string
        a.append(z[i]) #append into new list
-    new_list= [[s for s in l if len(s)>0] for l in a] #remove empty string in list
+    new_list=[[s for s in l if len(s)>0] for l in a] #remove empty string in list
     new_list2=[x for x in new_list if x]#remove empty list=>remove row from csv
     #To populate above_100 column
     for i in range(len(new_list2)):
