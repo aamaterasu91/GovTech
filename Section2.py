@@ -16,11 +16,11 @@ ID, which is a unique identifier for a type of car.
 CREATE TABLE public."DIM_CAR"
 (
     "ID" integer,
-    "Manufacturer" character varying(50),
-    "ModelName" character varying(50),
-    "SerialNumber" character varying(50),
-    "WeightKG" character varying(10),
-    "Price" character varying(10),
+    "Manufacturer" character varying(45),
+    "ModelName" character varying(45),
+    "SerialNumber" character varying(45),
+    "WeightKG" character varying(45),
+    "Price" character varying(45),
     PRIMARY KEY ("ID")
 )
 WITH (
@@ -33,9 +33,9 @@ ALTER TABLE public."DIM_CAR"
     
 CREATE TABLE public."FACT_SALES_TXN"
 (
-    "CustomerName" character varying(100),
-    "CustomerPhone" character varying(20),
-    "SalesPerson" character varying(100),
+    "CustomerName" character varying(45),
+    "CustomerPhone" character varying(45),
+    "SalesPerson" character varying(45),
     "ID" integer,
     "Timestamp" timestamp without time zone,
     PRIMARY KEY ("SalesPerson", "Timestamp")
